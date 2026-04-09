@@ -1,20 +1,20 @@
-# LexiPulse
+# LexisPulse
 
 A full-stack spaced-repetition vocabulary app focused on practical learning flow, offline reliability, and low-cost deployment.
 
-- Live Demo: https://lexipulse.pages.dev
+- Live Demo: https://lexispulse.pages.dev
 - Public Showcase: this repository
 - Private Source (full production repo): available on request for interview review
 
 ## Why This Project
 
 Most vocabulary apps solve practice; fewer solve continuity.
-LexiPulse is designed so users can keep learning with unstable network and still maintain progression integrity.
+LexisPulse is designed so users can keep learning with unstable network and still maintain progression integrity.
 The core idea started from a "decreasing learning" approach to vocabulary memorization, but I could not find mainstream apps implementing this algorithm in a practical daily workflow.
 
 ## What I Built
 
-- Custom SRS scheduling engine (Ebbinghaus-inspired)
+- Custom SRS (Spaced Repetition System) scheduling engine (Ebbinghaus-inspired)
 - Multi-tenant data model on Google Sheets (per-user sheet isolation)
 - Offline-first workflow with queued sync and optimistic cache updates
 - Cloudflare Function proxy to bridge browser and Apps Script constraints

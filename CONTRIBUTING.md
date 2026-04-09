@@ -1,6 +1,6 @@
 # Contributing Guide
 
-Thanks for your interest in improving LexiPulse Showcase.
+Thanks for your interest in improving LexisPulse Showcase.
 
 ## What Contributions Are Welcome
 

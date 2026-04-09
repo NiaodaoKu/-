@@ -1,4 +1,4 @@
-# LexiPulse Architecture Notes
+# LexisPulse Architecture Notes
 
 ## 1. End-to-End Request Path
 
