@@ -32,11 +32,31 @@ The core idea started from a "decreasing learning" approach to vocabulary memori
 ## Architecture
 
 ```text
-Client SPA
-  -> Cloudflare Function Proxy
-  -> Google Apps Script API
-  -> Google Sheets storage
+Presentation Layer (Browser SPA)
+  - Route/UI state, study flows, and local cache hydration
+  - Offline queue enqueue/replay via IndexedDB + Service Worker
+        |
+        v
+Edge API Layer (Cloudflare Pages Function)
+  - Stable browser-facing endpoint
+  - Proxy/normalize requests to Apps Script Web App
+        |
+        v
+Application Layer (Google Apps Script)
+  - Action router (`doPost`) with 30+ domain operations
+  - SRS scheduling, task completion, wrong-answer lifecycle
+        |
+        v
+Data Layer (Google Sheets)
+  - Per-user sheet isolation (multi-tenant boundary)
+  - Lightweight analytics and dashboard aggregation
 ```
+
+### Design Decisions
+
+- **Offline-first consistency**: user actions are accepted locally first, then reconciled through queue replay.
+- **Low-ops architecture**: Cloudflare + Apps Script + Sheets reduces infra overhead while preserving full-stack capability.
+- **Fast feedback loop**: completion UX prioritizes immediate response (optimistic update + short dashboard return).
 
 Detailed notes: [docs/architecture.md](docs/architecture.md)
 
